@@ -30,3 +30,9 @@ Faydaları:
 - - @reduxjs/toolkit
 
 - store.js oluştur
+- - `createStore` yerine `configureStore` kullanılcak
+- - store' u export et
+- - store'u projeye main.js'de tanıt(provider)
+
+- slice oluştur(hem reducerları hem action'ları kapsar)
+- slice için yönerge `app/counterSlice` içerisinde
