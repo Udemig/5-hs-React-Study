@@ -36,3 +36,10 @@ Faydaları:
 
 - slice oluştur(hem reducerları hem action'ları kapsar)
 - slice için yönerge `app/counterSlice` içerisinde
+
+# CRUD Projesi
+
+- Edit İşleminde İzlenecek Yol:
+- Modal içerisine düzenlenicek olan elmanın bütün verileri aktarılır
+- formstatin içerisine eğer düzenlenicek eleman varsa onun değerleri girilir yoksa değerler boş bırakılır
+- inputlara value ataması yapılır
