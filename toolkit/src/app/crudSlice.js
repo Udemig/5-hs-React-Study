@@ -24,13 +24,34 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      // storeda tutulan max verilerin sayısını alma
+      /*
+      ! gönderilen elemanın id değeri var mı onu kontrol ediyoruz
+      ? çünkü eğerki ekleme yapıldıysa gönderilen elemanın id değeri yok
+      ? düzenlenme yapıldıysa gönderilen elemanın id değeri var
+      */
+
+      //  ! objenin id değeri varsa çalışır:
+      if (action.payload.id) {
+        const index = state.tasks.findIndex(
+          (item) => item.id === action.payload.id
+        );
+
+        // bulduğumuz sıradaki elemanı çıkarıcaz
+        //  yerine action'la beraber gelen objeyi ekliyecez
+        state.tasks[index] = action.payload;
+
+        return;
+      }
+
+      // ! objenin id değeri yoksa çalışır:
+      // storeda tutulan  objelerin sayısını alma
       const maxId = state.tasks.length + 1;
       //   budluğumuz id değerini objeye ekleme
       action.payload.id = maxId;
       //   storu güncelleme(objeyi storedaki diziye ekliyoruz)
       state.tasks = [...state.tasks, action.payload];
     },
+
     removeTask: (state, action) => {
       // silinecek elemanın sırasını bulma
       const index = state.tasks.findIndex(
